@@ -1,6 +1,6 @@
 import './App.css';
-import MainImage from './components/MainImage'
-import NavBar from './components/NavBar';
+import MainImage from './MainImage'
+import NavBar from './NavBar';
 
 function App() {
   return (
