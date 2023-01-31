@@ -1,0 +1,21 @@
+*{
+    background-color: rgb(50, 50, 50);
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 16px;
+}
+
+li{
+    background-color: rgb(20, 20, 20);
+    color: ghostwhite;
+    padding: 16px 32px;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+li:hover{
+    cursor: pointer;
+}
