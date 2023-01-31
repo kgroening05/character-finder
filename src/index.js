@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css';
 import App from './components/App';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErrorPage from './components/ErrorPage';
+import Leaderboards from './components/Leaderboards';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/leaderboards",
+    element: <Leaderboards />,
   },
 ]);
 
