@@ -1,5 +1,11 @@
+:root{
+    --background-gray : rgb(50, 50, 50);
+    --background-dark : rgb(20, 20, 20);
+    --text-color-white : ghostwhite;
+}
+
 *{
-    background-color: rgb(50, 50, 50);
+    background-color: var(--background-gray);
 }
 
 ul {
@@ -9,8 +15,8 @@ ul {
 }
 
 li{
-    background-color: rgb(20, 20, 20);
-    color: ghostwhite;
+    background-color: var(--background-dark);
+    color: var(--text-color-white);
     padding: 16px 32px;
     border: 1px solid white;
     border-radius: 8px;
@@ -18,4 +24,13 @@ li{
 
 li:hover{
     cursor: pointer;
+}
+
+a:visited{
+    color: var(--text-color-white);
+}
+
+a{
+    text-decoration: none;
+    background-color: var(--background-dark);
 }

@@ -5,8 +5,8 @@ export default function NavBar() {
   return (
     <nav>
       <ul>
-        <li>Home</li>
-        <li>Leaderboards</li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/leaderboards">Leaderboard</a></li>
       </ul>
     </nav>
   );
