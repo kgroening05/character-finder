@@ -1,0 +1,7 @@
+img:hover{
+    cursor: crosshair;
+}
+
+img{
+    box-shadow: 0 0 10px 5px rgba(10, 10, 10, 40%);
+}

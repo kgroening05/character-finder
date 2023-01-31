@@ -1,7 +1,9 @@
 import React from "react";
+import './MainImage.css'
 import image from '../assets/universe113.jpg'
 import isPointInPolygon from '../utils/isPointInPolygon'
 import coords from '../assets/universe113coords.json'
+
 
 export default function MainImage(){
 
