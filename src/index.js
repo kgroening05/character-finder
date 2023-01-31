@@ -5,6 +5,7 @@ import './index.css';
 import App from './pages/App';
 import ErrorPage from './pages/ErrorPage';
 import Leaderboards from './pages/Leaderboards';
+import GamePage from './pages/GamePage'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/leaderboards",
     element: <Leaderboards />,
+  },
+  {
+    path: "/game",
+    element: <GamePage />,
   },
 ]);
 
