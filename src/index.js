@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css';
-import App from './components/App';
-import ErrorPage from './components/ErrorPage';
-import Leaderboards from './components/Leaderboards';
+import App from './pages/App';
+import ErrorPage from './pages/ErrorPage';
+import Leaderboards from './pages/Leaderboards';
 
 const router = createBrowserRouter([
   {
