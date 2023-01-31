@@ -1,10 +1,11 @@
 import './App.css';
 import MainImage from './components/MainImage'
+import NavBar from './components/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <nav>NavBar</nav>
+      <NavBar />
       <MainImage />
     </div>
   );
