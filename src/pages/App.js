@@ -1,13 +1,14 @@
 import './App.css';
 import NavBar from '../components/NavBar';
-import LevelSelectCard from '../components/LevelSelectCard';
-import { levelList } from '../assets/levelList'
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <LevelSelectCard levelsList={levelList} />
+      <div id='main-page'>
+        <Outlet />
+      </div>
     </div>
   );
 }

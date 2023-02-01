@@ -1,6 +1,5 @@
 import React from "react";
 import './GamePage.css'
-import NavBar from '../components/NavBar';
 import { useParams } from "react-router-dom";
 import { levelList } from "../assets/levelList";
 import MainImage from "../components/MainImage";
@@ -20,7 +19,6 @@ export default function GamePage() {
 
   return (
     <>
-      <NavBar />
       <div id="image-container">
         <div>HelloGame {levelObj.name}</div>
         <MainImage image={levelObj.image} coords={levelObj.coords} />
