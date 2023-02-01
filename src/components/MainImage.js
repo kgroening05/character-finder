@@ -1,18 +1,15 @@
 import React from "react";
 import './MainImage.css'
-import image from '../assets/universe113.jpg'
 import isPointInPolygon from '../utils/isPointInPolygon'
-import coords from '../assets/universe113coords.json'
 
-
-export default function MainImage(){
-
+export default function MainImage({ image, coords }){
     function handleClick(e){
         const yAdjust = e.target.offsetTop
         const xAdjust = e.target.offsetLeft
-        const x = e.pageX - xAdjust
-        const y = e.pageY - yAdjust
-        console.log({x,y})
+        const scale = e.target.naturalWidth / e.target.width
+        const x = (e.pageX - xAdjust) * scale
+        const y = (e.pageY - yAdjust) * scale
+        //console.log({x,y})
         for (const character in coords) {
             if (isPointInPolygon(x,y,coords[character])){
                 console.log(`You found ${character}!`)
