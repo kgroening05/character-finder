@@ -1,10 +1,10 @@
-// Image imports
+// Game Image imports
 import ad2222 from './ad2222.jpg'
 import roboCity from './robo-city.jpg'
 import ultimateSpaceBattle from './ultimate-space-battle.jpg'
 import universe113 from './universe113.jpg'
 
-// Coordinate Imports
+// Character Coordinate Imports
 import universe113Coords from '../assets/universe113coords.json'
 
 
