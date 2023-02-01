@@ -1,6 +1,19 @@
+:root{
+  --background-gray : rgb(44, 44, 58);
+  --background-dark : rgb(20, 20, 20);
+  --text-color-white : ghostwhite;
+  background-color: var(--background-gray)
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -21,11 +34,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--text-color-white);
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--text-color-white);
 }
 
 @keyframes App-logo-spin {
