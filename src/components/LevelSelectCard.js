@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import './LevelSelectCard.css'
 
 export default function LevelSelectCard({ levelsList }){
@@ -6,13 +7,15 @@ export default function LevelSelectCard({ levelsList }){
     <div id="level-cards">
       {levelsList.map(level=>{
         const bg = {
-          background: `no-repeat center/80% url(${level.image})`,
+          background: `no-repeat center url(${level.image})`,
         }
         return (
-          <div className="level">
-            <div class="thumbnail" style={bg}></div>
-            <p>{level.name}</p>
-          </div>
+          <Link to={`game/${level.link}`}>
+            <div className="level">
+              <div class="thumbnail" style={bg}></div>
+              <p>{level.name}</p>
+            </div>
+          </Link>
         );
       })}
     </div>
