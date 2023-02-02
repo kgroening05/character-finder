@@ -5,7 +5,7 @@ import { levelList } from "../assets/levelList";
 import MainImage from "../components/MainImage";
 import CharacterTarget from "../components/CharacterTarget";
 import isPointInPolygon from '../utils/isPointInPolygon'
-
+import generateUnusedIndex from "../utils/generateUnusedIndex";
 
 function matchLevel(level, levelList) {
   for (const element of levelList) {
@@ -15,14 +15,6 @@ function matchLevel(level, levelList) {
   }
   return null;
 }
-
-function generateUnusedIndex(usedNumberList, fullList){
-  const newNum = Math.floor(Math.random() * fullList.length)
-  const isFound = usedNumberList.find(element=>element === newNum)
-  return (isFound ? generateUnusedIndex(usedNumberList, fullList) : newNum)
-}
-
-
 
 export default function GamePage() {
   const { level } = useParams();
@@ -40,11 +32,12 @@ export default function GamePage() {
     // console.log({x,y})
     const coords = levelObj.coords
     for (const character in coords) {
-      if (isPointInPolygon(x,y,coords[character]) && character === levelObj.portraits[currentCharIndex[currentCharIndex.length - 1]]['name']){
-        setCurrentCharIndex([...currentCharIndex, generateUnusedIndex(currentCharIndex, levelObj.portraits)])
+      const targetCharacterName = levelObj.portraits[currentCharIndex[currentCharIndex.length - 1]]['name']
+      if (isPointInPolygon(x,y,coords[character]) && character === targetCharacterName){
         alert(`You found ${character}!`)
         console.log(`You found ${character}!`)
-        checkWinner()
+        if (checkWinner()) { break }
+        setCurrentCharIndex([...currentCharIndex, generateUnusedIndex(currentCharIndex, levelObj.portraits)])
         break
       }
     }
@@ -53,8 +46,9 @@ export default function GamePage() {
   function checkWinner(){
     if (currentCharIndex.length > levelObj.portraits.length - 1) {
       alert('You found them all!')
+      return true
     }
-
+    return false
   }
 
   return (
