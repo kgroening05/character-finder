@@ -8,7 +8,22 @@ import Leaderboards from './pages/Leaderboards';
 import GamePage from './pages/GamePage'
 import LevelSelectCard from './components/LevelSelectCard';
 import { levelList } from './assets/levelList'
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDnBLoenB15oBnkzMMcdKxBbyvq3ZB6BPU",
+  authDomain: "character-finder-5efb0.firebaseapp.com",
+  projectId: "character-finder-5efb0",
+  storageBucket: "character-finder-5efb0.appspot.com",
+  messagingSenderId: "68287017393",
+  appId: "1:68287017393:web:de6842b3186fbb0ab20d90"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 const router = createBrowserRouter([
   {
