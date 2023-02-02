@@ -12,7 +12,7 @@ export default function LevelSelectCard({ levelsList }){
         return (
           <Link to={`game/${level.link}`}>
             <div className="level">
-              <div class="thumbnail" style={bg}></div>
+              <div className="thumbnail" style={bg}></div>
               <p>{level.name}</p>
             </div>
           </Link>
