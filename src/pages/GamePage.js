@@ -40,10 +40,12 @@ export default function GamePage() {
     // console.log({x,y})
     const coords = levelObj.coords
     for (const character in coords) {
-      if (isPointInPolygon(x,y,coords[character])){
+      if (isPointInPolygon(x,y,coords[character]) && character === levelObj.portraits[currentCharIndex[currentCharIndex.length - 1]]['name']){
         setCurrentCharIndex([...currentCharIndex, generateUnusedIndex(currentCharIndex, levelObj.portraits)])
         alert(`You found ${character}!`)
+        console.log(`You found ${character}!`)
         checkWinner()
+        break
       }
     }
   }
