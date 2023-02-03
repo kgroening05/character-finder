@@ -12,6 +12,8 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+import { getStorage, ref } from "firebase/storage";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDnBLoenB15oBnkzMMcdKxBbyvq3ZB6BPU",
@@ -22,8 +24,13 @@ const firebaseConfig = {
   appId: "1:68287017393:web:de6842b3186fbb0ab20d90"
 };
 
-// Initialize Firebase
+// Create a reference with an initial file path and name
 const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
+const pathReference = ref(storage, 'portraits/ArnoldShortman.webp');
+console.log(pathReference)
+
+// Initialize Firebase
 
 const router = createBrowserRouter([
   {
