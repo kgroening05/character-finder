@@ -6,7 +6,7 @@ import App from './pages/App';
 import ErrorPage from './pages/ErrorPage';
 import Leaderboards from './pages/Leaderboards';
 import GamePage from './pages/GamePage'
-import LevelSelect from './components/LevelSelect';
+import LevelSelect from './pages/LevelSelect';
 import gamedata from './assets/gamedata.json'
 
 
