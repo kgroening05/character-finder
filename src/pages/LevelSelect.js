@@ -1,29 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { loadFirebaseStorageImage } from "../firebase";
-import LevelSelectCard from "./LevelSelectCard";
+import LevelSelectCard from "./components/LevelSelectCard";
 import './LevelSelect.css'
 
-export default function LevelSelectCard({ levelsList }){
-
-  const [levelUrls, setLevelURLs] = useState([])
-  for (const level in levelsList) {
-    loadFirebaseStorageImage(levelsList[level]['image'],(url)=>{
-      setLevelURLs([...levelUrls, url])
-    })
-  }
-
+export default function LevelSelect({ levelsList }){
+  const levels = Object.keys(levelsList)
+  console.log({ levels })
   return (
     <div id="level-cards">
-      {levelUrls.map((level, index)=>{
-
-        const bg = {
-          background: `no-repeat center url(${level})`,
-        }
+      {levels.map((level, index)=>{     
         return (
           <Link key={index} to={`game/${level}`}>
             <div className="level">
-              <div className="thumbnail" style={bg}></div>
+              <LevelSelectCard level={level} levelsList={levelsList}/>
               <p>{level.name}</p>
             </div>
           </Link>
