@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import './CharacterTarget.css'
+import { loadFirebaseStorageImage } from '../firebase';
+
 
 export default function CharacterTarget({ charList, currentCharIndex }) {
+  const [url, setUrl] = useState(null)
+  loadFirebaseStorageImage(charList[currentCharIndex]['portrait'], setUrl)
+
   const bg = {
-    background: `center / contain no-repeat url(${charList[currentCharIndex]['portrait']})`,
+    background: `center / contain no-repeat url(${url})`,
   }
 
   return (

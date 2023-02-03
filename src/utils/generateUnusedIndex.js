@@ -1,6 +1,7 @@
 export default function generateUnusedIndex(usedNumberList, fullList){
-    if (usedNumberList.length === fullList.length){return 'full'}
-    const newNum = Math.floor(Math.random() * fullList.length)
+    const fullLength = Object.keys(fullList).length
+    if (usedNumberList.length === fullLength){return 'full'}
+    const newNum = Math.floor(Math.random() * fullLength)
     const numberFound = usedNumberList.find(element=> element === newNum)
     if (typeof numberFound === 'undefined') {
         return newNum

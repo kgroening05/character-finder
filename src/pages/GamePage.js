@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import './GamePage.css'
 import { useParams } from "react-router-dom";
-import { levelList } from "../assets/levelList";
+import gamedata from '../assets/gamedata.json'
 import MainImage from "../components/MainImage";
 import CharacterTarget from "../components/CharacterTarget";
 import isPointInPolygon from '../utils/isPointInPolygon'
 import generateUnusedIndex from "../utils/generateUnusedIndex";
+import stringToCoordsArray from '../utils/stringToCoordsArray';
 
-function matchLevel(level, levelList) {
-  for (const element of levelList) {
-    if (element.link === level) {
-      return element
+function matchLevel(level, gamedata) {
+  for (const element in gamedata) {
+    if (element === level) {
+      return gamedata[element]
     }
   }
   return null;
@@ -18,10 +19,13 @@ function matchLevel(level, levelList) {
 
 export default function GamePage() {
   const { level } = useParams();
-  const levelObj = matchLevel(level, levelList)
-
-  const randomStart = Math.floor(Math.random()* levelObj.portraits.length)
-  const [currentCharIndex, setCurrentCharIndex] = useState([randomStart])
+  const levelObj = matchLevel(level, gamedata.levels)
+  const coordsObj = levelObj.coords
+  const portraitsObj = levelObj.portraits
+  const numberOfCharacters = Object.keys(levelObj.portraits).length
+  const randomStart = Math.floor(Math.random()* numberOfCharacters)
+  const [completedCharIndexes, setcompletedCharIndexes] = useState([randomStart])
+  const currentCharacterIndex = completedCharIndexes[completedCharIndexes.length - 1]
 
   function handleClick(e){
     const yAdjust = e.target.offsetTop
@@ -30,21 +34,21 @@ export default function GamePage() {
     const x = (e.pageX - xAdjust) * scale
     const y = (e.pageY - yAdjust) * scale
     // console.log({x,y})
-    const coords = levelObj.coords
-    for (const character in coords) {
-      const targetCharacterName = levelObj.portraits[currentCharIndex[currentCharIndex.length - 1]]['name']
-      if (isPointInPolygon(x,y,coords[character]) && character === targetCharacterName){
-        alert(`You found ${character}!`)
-        console.log(`You found ${character}!`)
-        if (checkWinner()) { break }
-        setCurrentCharIndex([...currentCharIndex, generateUnusedIndex(currentCharIndex, levelObj.portraits)])
-        break
+    const targetCharacterName = portraitsObj[currentCharacterIndex]['name']
+    const characterPolygon = stringToCoordsArray(coordsObj[targetCharacterName])
+
+    if (isPointInPolygon(x , y, characterPolygon)){
+      alert(`You found ${targetCharacterName}!`)
+      console.log(`You found ${targetCharacterName}!`)
+      if (!checkWinner()) {
+        let nextCharacterIndex = generateUnusedIndex(completedCharIndexes, portraitsObj)
+        setcompletedCharIndexes([...completedCharIndexes, nextCharacterIndex])
       }
     }
   }
 
   function checkWinner(){
-    if (currentCharIndex.length > levelObj.portraits.length - 1) {
+    if (completedCharIndexes.length > Object.keys(portraitsObj).length - 1) {
       alert('You found them all!')
       return true
     }
@@ -53,9 +57,9 @@ export default function GamePage() {
 
   return (
     <>
-      <CharacterTarget charList={levelObj.portraits} currentCharIndex={currentCharIndex[currentCharIndex.length - 1]} />
+      <CharacterTarget charList={levelObj.portraits} currentCharIndex={currentCharacterIndex} />
       <div id="image-container">
-        <div>Level: {levelObj.name} currentCharIndex: {currentCharIndex}</div>
+        <div>Level: {levelObj.name} currentCharIndex: {completedCharIndexes}</div>
         <MainImage image={levelObj.image} handleClick={handleClick}/>
       </div>
     </>
