@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getStorage, ref as refStorage, getDownloadURL } from "firebase/storage";
 import { getDatabase, ref as refDB , onValue } from "firebase/database";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,12 +18,27 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 const database = getDatabase(app);
+const leaderboard = getFirestore(app);
 
 export function loadFirebaseStorageImage(path, stateCallback){
     const pathReference = refStorage(storage, path);
     getDownloadURL(pathReference).then((url)=>{
         stateCallback(url)
     })
+}
+
+export async function addLeaderBoardData(level, name, score, timeString){
+  try {
+    const docRef = await addDoc(collection(leaderboard, level), {
+      name: name,
+      score: score,
+      time: timeString,
+    });
+  
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
 }
 
 export function loadFireBaseDatabase () {
