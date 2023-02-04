@@ -8,6 +8,7 @@ import isPointInPolygon from '../utils/isPointInPolygon'
 import generateUnusedIndex from "../utils/generateUnusedIndex";
 import stringToCoordsArray from '../utils/stringToCoordsArray';
 import StartButton from "../components/StartButton";
+import LevelCompleteModal from "../components/LevelCompleteModal";
 
 function matchLevel(level, gamedata) {
   for (const element in gamedata) {
@@ -29,10 +30,11 @@ export default function GamePage() {
   const portraitsObj = levelObj.portraits
   const numberOfCharacters = Object.keys(levelObj.portraits).length
   const randomStart = Math.floor(Math.random()* numberOfCharacters)
+  const gameRunTime = 10000
   const [completedCharIndexes, setcompletedCharIndexes] = useState([randomStart])
   const [gameStarted, setGameStarted] = useState(false)
   const [seconds, setSeconds] = useState(toSeconds(gameRunTime));  
-  const gameRunTime = 30000
+  const [gameComplete, setGameComplete] = useState(false);
   const currentCharacterIndex = completedCharIndexes[completedCharIndexes.length - 1]
 
   function handleClick(e){
@@ -59,7 +61,7 @@ export default function GamePage() {
     setSeconds(toSeconds((timeRemaining >= 0) ? timeRemaining : 0));
     if (timeRemaining <= 0){
       setGameStarted(false)
-      alert(`time up! You found ${completedCharIndexes.length} characters!`)
+      setGameComplete(true)
     }
   }
 
@@ -83,6 +85,7 @@ export default function GamePage() {
         <div>Level: {levelObj.name} currentCharIndex: {completedCharIndexes}</div>
         <MainImage image={levelObj.image} handleClick={handleClick} brightness={gameStarted ? "100%" : "0%"} />
       </div>
+      {gameComplete ? <LevelCompleteModal numberFound={completedCharIndexes.length - 1} level={level}/> : null}
     </>
   );
 }
