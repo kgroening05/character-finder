@@ -12,9 +12,15 @@
     z-index: 5;
     border-radius: 10px;
     color: ghostwhite;
+    transition: max-width 0.25s, min-width, 0.25s;
 }
 
 .target-portrait{
     flex: auto;
+}
+
+#char-target:hover{
+    max-width: 25vw;
+    min-width: 25vw;
 }
 
