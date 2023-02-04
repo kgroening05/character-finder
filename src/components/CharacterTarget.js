@@ -6,7 +6,9 @@ import CountDown from "./CoundDown";
 
 export default function CharacterTarget({ charList, currentCharIndex, gameStarted, countdownTime, seconds, handleCountdown }) {
   const [url, setUrl] = useState(null)
-  loadFirebaseStorageImage(charList[currentCharIndex]['portrait'], setUrl)
+  if (charList[currentCharIndex]){
+    loadFirebaseStorageImage(charList[currentCharIndex]['portrait'], setUrl)
+  }
 
   const bg = {
     background: `center / contain no-repeat url(${url})`,
