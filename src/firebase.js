@@ -34,8 +34,7 @@ export async function addLeaderBoardData(level, name, score, timeString){
       score: score,
       time: timeString,
     });
-  
-    console.log("Document written with ID: ", docRef.id);
+    return docRef
   } catch (e) {
     console.error("Error adding document: ", e);
   }
