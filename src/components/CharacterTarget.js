@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import './CharacterTarget.css'
 import { loadFirebaseStorageImage } from '../firebase';
+import CountDown from "./CoundDown";
 
 
-export default function CharacterTarget({ charList, currentCharIndex }) {
+export default function CharacterTarget({ charList, currentCharIndex, gameStarted, countdownTime, seconds, handleCountdown }) {
   const [url, setUrl] = useState(null)
   loadFirebaseStorageImage(charList[currentCharIndex]['portrait'], setUrl)
 
@@ -15,6 +16,7 @@ export default function CharacterTarget({ charList, currentCharIndex }) {
     <div id="char-target">
       <p>Find:</p>
       <div className="target-portrait" style={bg}></div>
+      <CountDown isTimerStarted={gameStarted} countdownTime={countdownTime} seconds={seconds} handleCountdown={handleCountdown} />
     </div>
   );
 }
