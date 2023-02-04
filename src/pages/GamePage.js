@@ -30,7 +30,7 @@ export default function GamePage() {
   const portraitsObj = levelObj.portraits
   const numberOfCharacters = Object.keys(levelObj.portraits).length
   const randomStart = Math.floor(Math.random()* numberOfCharacters)
-  const gameRunTime = 10000
+  const gameRunTime = 60000
   const [completedCharIndexes, setcompletedCharIndexes] = useState([randomStart])
   const [gameStarted, setGameStarted] = useState(false)
   const [seconds, setSeconds] = useState(toSeconds(gameRunTime));  
@@ -53,6 +53,9 @@ export default function GamePage() {
       if (!checkWinner()) {
         let nextCharacterIndex = generateUnusedIndex(completedCharIndexes, portraitsObj)
         setcompletedCharIndexes([...completedCharIndexes, nextCharacterIndex])
+      } else {
+        alert('You found them all!')
+        handleCountdown(0)
       }
     }
   }
@@ -67,7 +70,6 @@ export default function GamePage() {
 
   function checkWinner(){
     if (completedCharIndexes.length > Object.keys(portraitsObj).length) {
-      alert('You found them all!')
       return true
     }
     return false
