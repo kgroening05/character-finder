@@ -7,6 +7,7 @@ import CharacterTarget from "../components/CharacterTarget";
 import isPointInPolygon from '../utils/isPointInPolygon'
 import generateUnusedIndex from "../utils/generateUnusedIndex";
 import stringToCoordsArray from '../utils/stringToCoordsArray';
+import StartButton from "../components/StartButton";
 
 function matchLevel(level, gamedata) {
   for (const element in gamedata) {
@@ -25,6 +26,7 @@ export default function GamePage() {
   const numberOfCharacters = Object.keys(levelObj.portraits).length
   const randomStart = Math.floor(Math.random()* numberOfCharacters)
   const [completedCharIndexes, setcompletedCharIndexes] = useState([randomStart])
+  const [gameStarted, setGameStarted] = useState(false)
   const currentCharacterIndex = completedCharIndexes[completedCharIndexes.length - 1]
 
   function handleClick(e){
@@ -54,13 +56,18 @@ export default function GamePage() {
     }
     return false
   }
+  
+  function handleStartButtonClick(){
+    setGameStarted(true)
+  }
 
   return (
     <>
       <CharacterTarget charList={levelObj.portraits} currentCharIndex={currentCharacterIndex} />
       <div id="image-container">
+        {gameStarted ? null : <StartButton startCallback={handleStartButtonClick}/>}
         <div>Level: {levelObj.name} currentCharIndex: {completedCharIndexes}</div>
-        <MainImage image={levelObj.image} handleClick={handleClick}/>
+        <MainImage image={levelObj.image} handleClick={handleClick} brightness={gameStarted ? "100%" : "0%"} />
       </div>
     </>
   );

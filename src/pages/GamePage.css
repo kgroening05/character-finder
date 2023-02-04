@@ -8,3 +8,19 @@ img{
     flex-direction: column;
     align-items: center;
 }
+
+.start-button{
+    z-index: 5;
+    padding: 16px 32px;
+    position: fixed;
+    top: 128px;
+    border-radius: 32px;
+    border: none;
+    background-color: ghostwhite;
+    transition: transform 0.5s;
+}
+
+.start-button:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+}
