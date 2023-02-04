@@ -18,6 +18,10 @@ function matchLevel(level, gamedata) {
   return null;
 }
 
+function toSeconds(msTime){
+  return(Math.floor((msTime / 1000) % 60))
+}
+
 export default function GamePage() {
   const { level } = useParams();
   const levelObj = matchLevel(level, gamedata.levels)
@@ -27,6 +31,8 @@ export default function GamePage() {
   const randomStart = Math.floor(Math.random()* numberOfCharacters)
   const [completedCharIndexes, setcompletedCharIndexes] = useState([randomStart])
   const [gameStarted, setGameStarted] = useState(false)
+  const [seconds, setSeconds] = useState(toSeconds(gameRunTime));  
+  const gameRunTime = 30000
   const currentCharacterIndex = completedCharIndexes[completedCharIndexes.length - 1]
 
   function handleClick(e){
@@ -49,8 +55,16 @@ export default function GamePage() {
     }
   }
 
+  function handleCountdown(timeRemaining){
+    setSeconds(toSeconds((timeRemaining >= 0) ? timeRemaining : 0));
+    if (timeRemaining <= 0){
+      setGameStarted(false)
+      alert(`time up! You found ${completedCharIndexes.length} characters!`)
+    }
+  }
+
   function checkWinner(){
-    if (completedCharIndexes.length > Object.keys(portraitsObj).length - 1) {
+    if (completedCharIndexes.length > Object.keys(portraitsObj).length) {
       alert('You found them all!')
       return true
     }
@@ -63,7 +77,7 @@ export default function GamePage() {
 
   return (
     <>
-      <CharacterTarget charList={levelObj.portraits} currentCharIndex={currentCharacterIndex} />
+      <CharacterTarget charList={levelObj.portraits} currentCharIndex={currentCharacterIndex} gameStarted={gameStarted} countdownTime={gameRunTime} seconds={seconds} handleCountdown={handleCountdown} />
       <div id="image-container">
         {gameStarted ? null : <StartButton startCallback={handleStartButtonClick}/>}
         <div>Level: {levelObj.name} currentCharIndex: {completedCharIndexes}</div>
