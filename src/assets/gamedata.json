@@ -2,15 +2,87 @@
     "levels" : {
         "ad2222" : {
             "name" : "A.D. 2222",
-            "image" : "levels/ad2222.jpg"
+            "image" : "levels/ad2222.jpg",
+            "coords" : {
+                "Neo" : "771,5106,778,5015,884,5040,883,5107",
+                "Cortana" : "1822,6556,1807,6452,1868,6447,1867,6561",
+                "Turnip Head" : "877,4281,870,4182,955,4226,941,4318",
+                "Leeloo" : "1674,2447,1660,2334,1716,2328,1739,2438",
+                "Yubaba" : "985,512,1011,418,1095,461,1075,549",
+                "Rocco" : "63,7701,72,7632,114,7650,109,7704",
+                "Wilson" : "1660,8337,1662,8296,1706,8309,1686,8371",
+                "Aang" : "98,6408,105,6351,156,6355,162,6415",
+                "Jabba" : "1193,5839,1255,5754,1324,5798,1287,5881",
+                "No Face" : "1185,2971,1195,2871,1250,2902,1243,2994",
+                "Claptrap" : "739,7010,773,6931,835,6972,794,7044"
+            },
+            "portraits" : {
+                "0" : { "name": "Neo" , "portrait" : "portraits/neo.png"},
+                "1" : { "name": "Cortana" , "portrait" : "portraits/cortana.png"},
+                "2" : { "name": "Turnip Head" , "portrait" : "portraits/turniphead.png"},
+                "3" : { "name": "Leeloo" , "portrait" : "portraits/leeloo.png"},
+                "4" : { "name": "Yubaba" , "portrait" : "portraits/yubaba.png"},
+                "5" : { "name": "Rocco" , "portrait" : "portraits/rocco.png"},
+                "6" : { "name": "Wilson" , "portrait" : "portraits/wilson.png"},
+                "7" : { "name": "Aang" , "portrait" : "portraits/aang.png"},
+                "8" : { "name": "Jabba" , "portrait" : "portraits/jabba.png"},
+                "9" : { "name": "No Face" , "portrait" : "portraits/noface.png"},
+                "10" :{ "name": "Claptrap" , "portrait" : "portraits/claptrap.png"}
+            }
         },
         "robocity" : {
             "name" : "Robo City",
-            "image" : "levels/robo-city.jpg"
+            "image" : "levels/robo-city.jpg",
+            "coords" : {
+                "Machine Lifeform" : "340,2152,324,2088,369,2077,388,2152",
+                "Alcina Dimitrescu" : "1751,1275,1727,1125,1839,1123,1842,1324",
+                "Mojo Jojo" : "536,1628,572,1545,629,1564,618,1651",
+                "Dalek" : "1055,1213,1055,1090,1119,1081,1119,1216",
+                "Sentinel" : "885,2032,903,1946,1082,1951,1064,2070",
+                "Hedonism Bot" : "1376,1717,1420,1657,1495,1637,1563,1717,1448,1741",
+                "Leonardo" : "1506,1507,1501,1408,1557,1397,1566,1525",
+                "The Pagemaster Books" : "1395,2664,1395,2608,1541,2604,1559,2657",
+                "Calcifer" : "846,2756,863,2657,956,2622,976,2734,914,2754"
+            },
+            "portraits" : {
+                "0" : { "name": "Machine Lifeform" , "portrait" : "portraits/machine.png"},
+                "1" : { "name": "Alcina Dimitrescu" , "portrait" : "portraits/alcina.png"},
+                "2" : { "name": "Mojo Jojo" , "portrait" : "portraits/mojojojo.png"},
+                "3" : { "name": "Dalek" , "portrait" : "portraits/dalek.png"},
+                "4" : { "name": "Sentinel" , "portrait" : "sentinel.png"},
+                "5" : { "name": "Hedonism Bot" , "portrait" : "portraits/hedonism.png"},
+                "6" : { "name": "Leonardo" , "portrait" : "portraits/leonardo.png"},
+                "7" : { "name": "The Pagemaster Books" , "portrait" : "portraits/pagemaster.png"},
+                "8" : { "name": "Calcifer" , "portrait" : "portraits/calcifer.png"}
+            }
         },
         "spacebattle" : {
             "name" : "Ultimate Space Battle",
-            "image" : "levels/ultimate-space-battle.jpg"
+            "image" : "levels/ultimate-space-battle.jpg",
+            "coords" : {
+                "Quiet" : "2063,728,2060,678,2086,670,2124,731",
+                "Falkor" : "404,1612,462,1602,494,1647,560,1615,578,1671,488,1732,361,1655",
+                "Aku Aku" : "1135,1745,1143,1700,1177,1689,1172,1763",
+                "Agent47" : "2227,1231,2211,1173,2280,1175,2261,1249",
+                "Dark Helmet" : "2426,1289,2423,1199,2484,1207,2500,1271",
+                "Beetlejuice" : "1077,603,1095,545,1169,566,1140,635",
+                "Squidward" : "356,1297,364,1241,406,1236,414,1289",
+                "Turnip Head" : "1495,176,1562,184,1564,274,1493,272",
+                "Hollow Knight" : "2145,1006,2153,968,2184,974,2184,1029",
+                "Lrrr" : "1806,1483,1851,1469,1877,1567,1816,1578"
+            },
+            "portraits" : {
+                "0" :{ "name" : "Quiet" , "portrait" : "portraits/quiet.png"},
+                "1" :{ "name" : "Falkor" , "portrait" : "portraits/falkor.png"},
+                "2" :{ "name" : "Aku Aku" , "portrait" : "portraits/akuaku.png"},
+                "3" :{ "name" : "Agent47" , "portrait" : "portraits/agent47.png"},
+                "4" :{ "name" : "Dark Helmet" , "portrait" : "portraits/darkhelmet.png"},
+                "5" :{ "name" : "Beetlejuice" , "portrait" : "portraits/beetlejuice.png"},
+                "6" :{ "name" : "Squidward" , "portrait" : "portraits/squidward.png"},
+                "7" :{ "name" : "Turnip Head" , "portrait" : "portraits/turniphead.png"},
+                "8" :{ "name" : "Hollow Knight" , "portrait" : "portraits/hollowknight.png"},
+                "9" :{ "name" : "Lrrr" , "portrait" : "portraits/lrrr.png"}
+            }
         },
         "universe113" : {
             "name" : "Universe 113",
