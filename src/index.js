@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/leaderboards",
-        element: <Leaderboards />,
+        element: <Leaderboards levelsList={gamedata.levels}/>,
       },
       {
         path: "/game/:level",
