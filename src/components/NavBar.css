@@ -7,7 +7,7 @@ nav {
     background-color: var(--background-dark);
 }
 
-ul {
+nav ul {
     list-style: none;
     display: flex;
 }
