@@ -1,0 +1,49 @@
+.leaderboards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: min-content;
+    justify-content: center;
+    gap: 32px;
+    padding: 32px;
+}
+
+.level-leaderboard{
+    background-color: ghostwhite;
+    border-radius: 16px;
+    padding: 16px;
+    border-spacing: 0;
+    align-self: start;
+}
+
+.board-item{
+    border: 1px solid black;
+    height: 1.5rem;
+    border-radius: 8px;
+}
+
+td{
+    padding: 5px;
+}
+
+.player-name{
+    text-align: left;
+}
+
+
+tr:nth-child(odd){
+    background-color: rgba(195, 197, 224, 0.8);
+}
+
+tr:hover{
+    background-color: rgba(73, 238, 161, 0.8);
+}
+
+th {
+    background-color: rgb(23, 55, 143);
+    color: ghostwhite;
+    vertical-align: middle;
+    height: 2rem;
+    font-size: 1.5rem;
+    border-radius: 9px;
+    padding: 4px;
+}
