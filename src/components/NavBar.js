@@ -6,8 +6,8 @@ export default function NavBar() {
   return (
     <nav>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/leaderboards">Leaderboard</Link></li>
+        <Link to="/"><li className="nav">Home</li></Link>
+        <Link to="/leaderboards"><li className="nav">Leaderboard</li></Link>
       </ul>
     </nav>
   );

@@ -12,7 +12,7 @@ ul {
     display: flex;
 }
 
-li{
+.nav{
     color: var(--text-color-white);
     padding: 16px 32px;
     border-bottom: 5px inset var(--background-dark);
