@@ -21,3 +21,6 @@
     aspect-ratio: 5/1;
 }
 
+a, a:visited{
+    color: ghostwhite;
+}
