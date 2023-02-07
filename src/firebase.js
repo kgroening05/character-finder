@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getStorage, ref as refStorage, getDownloadURL } from "firebase/storage";
 import { getDatabase, ref as refDB , onValue } from "firebase/database";
-import { getFirestore, collection, addDoc, getDocs, connectFirestoreEmulator } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -40,15 +40,14 @@ export async function addLeaderBoardData(level, name, score, timeString){
   }
 }
 
-export async function getLeaderBoardData(level, stateCallback){
-  const querySnapshot = await getDocs(connectFirestoreEmulator(leaderboard, level, 4400));
+export async function getLeaderBoardData(level, handleData){
+  const querySnapshot = await getDocs(collection(leaderboard, level));
   let tempArr = [];
   querySnapshot.forEach((doc) => {
     tempArr.push(doc.data())
     //console.log(doc.id, " => ", doc.data());
   });
-  //console.log(tempArr)
-  stateCallback(tempArr)
+  return tempArr;
 }
 
 export function loadFireBaseDatabase () {
