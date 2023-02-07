@@ -84,7 +84,7 @@ export default function GamePage() {
       <CharacterTarget charList={levelObj.portraits} currentCharIndex={currentCharacterIndex} gameStarted={gameStarted} countdownTime={gameRunTime} seconds={seconds} handleCountdown={handleCountdown} />
       <div id="image-container">
         {gameStarted ? null : <StartButton startCallback={handleStartButtonClick}/>}
-        <div>Level: {levelObj.name} currentCharIndex: {completedCharIndexes}</div>
+        <div>Level: {levelObj.name}</div>
         <MainImage image={levelObj.image} handleClick={handleClick} brightness={gameStarted ? "100%" : "0%"} />
       </div>
       {gameComplete ? <LevelCompleteModal numberFound={completedCharIndexes.length - 1} level={level}/> : null}
