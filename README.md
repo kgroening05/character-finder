@@ -1,5 +1,6 @@
 # Where's Waldo Clone
-![Screenshot of the level-select screen](readme-images/Screenshot 2023-02-28 202545.png)
+<img src="/readme-images/Screenshot 2023-02-28 202545.png" alt="Screenshot of the level-select screen" title="Optional title">
+
 ## Description
 This project was made using React. Check it out here: [https://character-finder-5efb0.web.app/]
 
