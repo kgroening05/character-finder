@@ -17,7 +17,7 @@ You can record your score in the leaderboards to see how others ranked.
 This is a simple practice project to help build skills with React and creating a hosted a site with a backend. The backend in this case includes two types of NoSQL databases and a cloud storage service.
 
 
-## Challenges // Lessons Learned
+## Challenges / Lessons Learned
 ### Detecting Which Character Was Clicked
 I had a lot of fun putting this together. When I was planning out the project, I anticipated that the hardest part would be determining if the user clicked a character in the image. 
 
@@ -27,7 +27,7 @@ I ended up finding an algorithm for how to approach detecting if a click happene
 
 This method works with any shape of polygon, not just simple shapes like squares. It also works with, for example, C-shaped polygons. 
 
-### Managing 
+### Managing State
 What actually ended up being the more challenging part of the project was managing state in React. From previous projects, I thought I had a decent handle on this. I definitely ended up learning a lot though. 
 
 The most challening part was keeping track of what characters had been found, and then giving another random character to find.
